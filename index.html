@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click the Link Find It!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            font-family: Blackadder ITC, sans-serif;
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            height: 400px;
+            width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .tanong {
+            color: #ec3da9;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #fda8f6;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 13px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: #ff00aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img  src="https://i.pinimg.com/originals/df/a0/ce/dfa0ced5c6430c6ff5bbe4a7d2d9d1de.gif" alt="gif" >
+        <h1 class="tanong">Do you love me?</h1>
+        <div class="buttons">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const question = document.querySelector('.tanong');
+        const noBtn = document.querySelector('.no-btn');
+
+        document.querySelector('.yes-btn').addEventListener('click', () => {
+            question.innerHTML = '<a href="https://www.youtube.com/watch?v=DxvFdX2yOBI"> ->I love you too!<- </a>';
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            const containerRect = container.getBoundingClientRect();
+            const noBtnRect = noBtn.getBoundingClientRect();
+            const i = Math.random() * (containerRect.width - noBtnRect.width);
+            const j = Math.random() * (containerRect.height - noBtnRect.height);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = i + 'px';
+            noBtn.style.top = j + 'px';
+        });
+    </script>
+
+
+</body></html>
